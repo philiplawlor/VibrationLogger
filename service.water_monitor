@@ -1,0 +1,22 @@
+[Unit]
+Description=GrowAtHome_Water_Monitor
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+Restart=always
+
+# Every 600 seconds (or 10 minutes)
+RestartSec=600
+
+StartLimitInterval=0
+
+# Sensor type: "none", "BME280" or "BMP280"
+Environment="SENSOR_TYPE=BME280"
+WorkingDirectory=/home/pi/Documents
+ExecStart=/home/pi/Documents/water_monitor.sh
+
+[Install]
+WantedBy=multi-user.target
