@@ -14,7 +14,7 @@ class MyDB extends SQLite3 {
    }
 
    $sql =<<<EOF
-      SELECT row_number() over(order by date) id, * from log order by 1 desc LIMIT 20;
+      SELECT row_number() over(order by date) id, * from log order by 1 desc LIMIT 40;
    EOF;
 
    $ret = $db->query($sql);
